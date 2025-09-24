@@ -1,13 +1,34 @@
 'use client'
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Clock, Moon, Sun, Sunset, BookOpen, Dumbbell, Briefcase } from 'lucide-react'
-import { getCategoryColor, getCategoryIcon } from '@/lib/utils'
+import { Clock, Sun, Sunset } from 'lucide-react'
+import { getCategoryColor } from '@/lib/utils'
+
+// Define types for better TypeScript support
+type PeriodKey = 'morning' | 'day' | 'evening'
+
+interface Activity {
+    time: string
+    title: string
+    description: string
+    category: string
+    mindset?: string
+}
+
+interface RoutinePeriod {
+    title: string
+    icon: any
+    color: string
+    time: string
+    activities: Activity[]
+}
+
+type Routines = Record<PeriodKey, RoutinePeriod>
 
 const DailyRoutine = () => {
-    const [selectedPeriod, setSelectedPeriod] = useState('morning')
+    const [selectedPeriod, setSelectedPeriod] = useState<PeriodKey>('morning')
 
-    const routines = {
+    const routines: Routines = {
         morning: {
             title: "Morning Routine",
             icon: Sun,
@@ -163,15 +184,15 @@ const DailyRoutine = () => {
                 {/* Period Selector */}
                 <div className="flex justify-center mb-12">
                     <div className="glass-effect rounded-2xl p-2 inline-flex">
-                        {Object.entries(routines).map(([key, routine]) => (
+                        {(Object.entries(routines) as [PeriodKey, RoutinePeriod][]).map(([key, routine]) => (
                             <motion.button
                                 key={key}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => setSelectedPeriod(key)}
                                 className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all ${selectedPeriod === key
-                                    ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg'
-                                    : 'text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400'
+                                        ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-lg'
+                                        : 'text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400'
                                     }`}
                             >
                                 <routine.icon className="w-5 h-5" />

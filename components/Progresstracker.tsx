@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { motion } from 'framer-motion'
-import { TrendingUp, Calendar, Target, CheckCircle } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 
 const ProgressTracker = () => {
     const progressData = [

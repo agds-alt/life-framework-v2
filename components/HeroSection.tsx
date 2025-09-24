@@ -1,5 +1,4 @@
-﻿// Will be filled manually
-'use client'
+﻿'use client'
 
 import React from 'react'
 import { motion } from 'framer-motion'
@@ -8,13 +7,15 @@ import { scrollToSection } from '@/lib/utils'
 
 const HeroSection = () => {
     return (
-        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+            {/* Background Gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" />
 
+            {/* Floating Animation Elements */}
             <motion.div
                 animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-20 left-10 w-20 h-20 bg-primary-200/30 rounded-full blur-xl"
+                className="absolute top-32 left-10 w-20 h-20 bg-primary-200/30 rounded-full blur-xl"
             />
             <motion.div
                 animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
@@ -22,17 +23,20 @@ const HeroSection = () => {
                 className="absolute bottom-20 right-10 w-32 h-32 bg-secondary-200/30 rounded-full blur-xl"
             />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            {/* Main Content */}
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-16 lg:mt-0">
+                {/* Spiritual Rebirth Badge */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="inline-flex items-center space-x-2 bg-primary-100 dark:bg-primary-900/50 px-4 py-2 rounded-full text-primary-700 dark:text-primary-300 text-sm font-medium mb-8"
+                    className="inline-flex items-center space-x-2 bg-primary-100 dark:bg-primary-900/50 px-6 py-3 rounded-full text-primary-700 dark:text-primary-300 text-sm font-medium mb-8 shadow-lg"
                 >
                     <Star className="w-4 h-4" />
                     <span>Spiritual Rebirth Started: Sept 24, 2025</span>
                 </motion.div>
 
+                {/* Main Title */}
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -43,6 +47,7 @@ const HeroSection = () => {
                     <span className="block gradient-text">v2.0</span>
                 </motion.h1>
 
+                {/* Subtitle */}
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -63,6 +68,7 @@ const HeroSection = () => {
                     </span>
                 </motion.p>
 
+                {/* Stats Cards */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -90,6 +96,7 @@ const HeroSection = () => {
                     ))}
                 </motion.div>
 
+                {/* Action Buttons */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -115,6 +122,7 @@ const HeroSection = () => {
                     </motion.button>
                 </motion.div>
 
+                {/* Scroll Down Indicator */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -132,6 +140,7 @@ const HeroSection = () => {
                 </motion.div>
             </div>
 
+            {/* Bottom Quote */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
