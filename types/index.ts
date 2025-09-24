@@ -7,6 +7,12 @@
     benefits: string[]
     islamicQuote?: string
     icon: string
+    // Tambahkan property ini untuk detailed breakdown
+    detailedBreakdown?: Array<{
+        time: string;
+        task: string;
+        description: string;
+    }>;
 }
 
 export interface SchedulePeriod {
@@ -41,3 +47,6 @@ export interface TransformationMetric {
     after: string
     icon: string
 }
+
+// Hapus interface Activity yang duplicate ini
+// export interface Activity { ... }
